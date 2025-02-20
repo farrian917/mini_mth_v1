@@ -1,0 +1,6 @@
+../user_drivers/gpio_interface/gpio_io.c:30:11:get_gpio_port_array_ptr	1
+../user_drivers/gpio_interface/gpio_io.c:35:11:get_gpio_pin_array_ptr	1
+../user_drivers/gpio_interface/gpio_io.c:44:6:gpio_set	4
+../user_drivers/gpio_interface/gpio_io.c:69:15:gpio_get	3
+../user_drivers/gpio_interface/gpio_io.c:96:6:setup_soft_spi_interface	1
+../user_drivers/gpio_interface/gpio_io.c:109:6:setup_soft_i2c_interface	1

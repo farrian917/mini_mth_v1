@@ -1,0 +1,3 @@
+../user_callbacks/callback.c:60:6:HAL_UART_RxCpltCallback	2
+../user_callbacks/callback.c:79:6:HAL_UART_TxCpltCallback	2
+../user_callbacks/callback.c:107:6:set_cb_periph_event_id	1

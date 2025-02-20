@@ -1,0 +1,6 @@
+../user_messages/messages.c:26:6:gpio_cmd_msg_queue_init	2
+../user_messages/messages.c:42:6:gpio_out_msg_queue_init	2
+../user_messages/messages.c:58:6:print_msg_queue_init	2
+../user_messages/messages.c:74:20:get_gpio_cmd_msg_queue_id	1
+../user_messages/messages.c:83:20:get_gpio_out_msg_queue_id	1
+../user_messages/messages.c:92:20:get_print_msg_queue_id	1

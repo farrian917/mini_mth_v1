@@ -1,0 +1,2 @@
+../user_drivers/simple_led/simple_led.c:10:10:simple_led_set	1
+../user_drivers/simple_led/simple_led.c:24:22:simple_led_init	1

@@ -1,0 +1,16 @@
+../user_drivers/periph_interface/periph_io.c:22:13:_i2c_soft_start	32	static
+../user_drivers/periph_interface/periph_io.c:52:13:_i2c_soft_stop	24	static
+../user_drivers/periph_interface/periph_io.c:70:16:_i2c_soft_read_byte	40	static
+../user_drivers/periph_interface/periph_io.c:116:16:_i2c_soft_write_byte	40	static
+../user_drivers/periph_interface/periph_io.c:159:16:_i2c_soft_write_data	40	static
+../user_drivers/periph_interface/periph_io.c:181:13:_i2c_soft_read_data	48	static
+../user_drivers/periph_interface/periph_io.c:202:21:spi_read_polling	32	static
+../user_drivers/periph_interface/periph_io.c:228:21:spi_write_polling	32	static
+../user_drivers/periph_interface/periph_io.c:254:21:i2c_write_polling	32	static
+../user_drivers/periph_interface/periph_io.c:280:21:i2c_read_polling	32	static
+../user_drivers/periph_interface/periph_io.c:307:21:i2c_soft_write	32	static
+../user_drivers/periph_interface/periph_io.c:321:21:i2c_soft_read	32	static
+../user_drivers/periph_interface/periph_io.c:335:21:spi_write_dma	32	static
+../user_drivers/periph_interface/periph_io.c:361:21:spi_read_dma	32	static
+../user_drivers/periph_interface/periph_io.c:387:21:uart_write_dma	32	static
+../user_drivers/periph_interface/periph_io.c:413:21:uart_read_dma	32	static

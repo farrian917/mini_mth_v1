@@ -1,0 +1,7 @@
+../user_drivers/link_interface/link_interface.c:22:6:link_periph_interface	24	static
+../user_drivers/link_interface/link_interface.c:50:6:link_gpio_interface	24	static
+../user_drivers/link_interface/link_interface.c:62:20:get_gpio_interface_handle	24	static
+../user_drivers/link_interface/link_interface.c:82:22:get_soft_spi_interface_handle	24	static
+../user_drivers/link_interface/link_interface.c:102:22:get_hard_spi_interface_handle	24	static
+../user_drivers/link_interface/link_interface.c:122:22:get_soft_i2c_interface_handle	24	static
+../user_drivers/link_interface/link_interface.c:162:22:get_hard_uart_interface_handle	24	static

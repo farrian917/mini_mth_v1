@@ -1,0 +1,2 @@
+../user_events/events.c:16:6:init_periph_events	8	static
+../user_events/events.c:33:20:get_periph_event_id	4	static

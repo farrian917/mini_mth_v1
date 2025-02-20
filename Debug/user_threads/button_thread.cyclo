@@ -1,0 +1,3 @@
+../user_threads/button_thread.c:29:6:button_thread_init	1
+../user_threads/button_thread.c:43:6:button_thread	3
+../user_threads/button_thread.c:67:14:get_mcu_io_thread_id	1
