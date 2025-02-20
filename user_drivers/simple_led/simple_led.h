@@ -27,10 +27,11 @@ typedef enum
 /// Struct for simple led parameters
 typedef struct
 {
-	gpio_interface_td interface;
+	gpio_interface_td *interface;
+	uint32_t GPIO_LED_ORANGE;
 } simple_led_params_td;
 
 uint16_t simple_led_set (simple_led_params_td *p_params, simple_led_states_td led_state);
-simple_led_status_td simple_led_init(simple_led_params_td *p_params);
+simple_led_status_td simple_led_init(simple_led_params_td *p_params, gpio_interface_td *hgpio, uint32_t led_pin_number);
 
 #endif /* SIMPLE_LED_H_ */

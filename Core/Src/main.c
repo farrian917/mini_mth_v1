@@ -24,14 +24,14 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-//#include "gpio_interface.h"
-//#include "gpio_io.h"
 #include "link_interface.h"
 #include "periph_io.h"
 #include "gpio_io.h"
 #include "messages.h"
 #include "events.h"
 #include "api.h"
+#include "simple_led.h"
+#include "user_hw_abstraction_layer.h"
 
 /* USER CODE END Includes */
 
@@ -472,15 +472,21 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
 {
+	simple_led_params_td hled;
+
+	simple_led_init(&hled, &hgpio, GPIO_LED_ORANGE);
+
   /* init code for USB_DEVICE */
   MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 5 */
   /* Infinite loop */
   for(;;)
   {
-	gpio_set(0, GPIO_TRUE);
+	  simple_led_set(&hled, LED_ON);
+	//gpio_set(0, GPIO_TRUE);
 	osDelay(100);
-	gpio_set(0, GPIO_FALSE);
+	//gpio_set(0, GPIO_FALSE);
+	simple_led_set(&hled, LED_OFF);
     osDelay(100);
 
     print_to_console("Default task says Hello!");

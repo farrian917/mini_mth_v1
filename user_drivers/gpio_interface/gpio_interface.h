@@ -16,8 +16,8 @@ typedef enum
 	GPIO_TRUE
 } gpio_value_td;
 
-typedef void (*p_gpio_set_ftd)(/*gpio_brd_label_td gpio_brd_label*/ const uint32_t pin_number, const gpio_value_td gpio_value);
-typedef gpio_value_td (*p_gpio_get_ftd)(/*gpio_brd_label_td gpio_brd_label*/ const uint32_t pin_number);
+typedef void (*p_gpio_set_ftd)(const uint32_t pin_number, const gpio_value_td gpio_value);
+typedef gpio_value_td (*p_gpio_get_ftd)(const uint32_t pin_number);
 
 /// Struct for used gpio interface
 typedef struct

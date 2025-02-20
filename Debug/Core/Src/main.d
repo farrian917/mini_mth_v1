@@ -50,7 +50,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../user_drivers/periph_interface/periph_interface.h \
  ../user_drivers/gpio_interface/gpio_io.h \
  ../user_drivers/gpio_interface/gpio_interface.h \
- ../user_messages/messages.h ../user_events/events.h ../user_api/api.h
+ ../user_messages/messages.h ../user_events/events.h ../user_api/api.h \
+ ../user_drivers/simple_led/simple_led.h \
+ ../user_drivers/user_hw_abstraction_layer.h
 ../Core/Inc/main.h:
 C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -106,3 +108,5 @@ C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/ST/STM32_U
 ../user_messages/messages.h:
 ../user_events/events.h:
 ../user_api/api.h:
+../user_drivers/simple_led/simple_led.h:
+../user_drivers/user_hw_abstraction_layer.h:
