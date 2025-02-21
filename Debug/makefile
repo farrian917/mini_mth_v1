@@ -13,15 +13,13 @@ RM := rm -rf
 -include user_messages/subdir.mk
 -include user_events/subdir.mk
 -include user_drivers/simple_led/subdir.mk
+-include user_drivers/rs485/subdir.mk
 -include user_drivers/periph_interface/subdir.mk
 -include user_drivers/link_interface/subdir.mk
 -include user_drivers/gpio_interface/subdir.mk
 -include user_drivers/subdir.mk
 -include user_callbacks/subdir.mk
 -include user_api/subdir.mk
--include USB_DEVICE/Target/subdir.mk
--include USB_DEVICE/App/subdir.mk
--include Middlewares/USB_Device_Library/subdir.mk
 -include Middlewares/FreeRTOS/subdir.mk
 -include Drivers/STM32F1xx_HAL_Driver/subdir.mk
 -include Core/Startup/subdir.mk

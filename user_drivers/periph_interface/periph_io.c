@@ -384,17 +384,17 @@ periph_io_status_td spi_read_dma(void *p_periph_interface, interface_data_info_t
 /**
  * \brief UART write function
  */
-periph_io_status_td uart_write_dma(void *p_periph_interface, interface_data_info_td *p_interface_data_info)
+periph_io_status_td uart_write_it(void *p_periph_interface, interface_data_info_td *p_interface_data_info)
 {
 	void *p_interface_handle = ((periph_interface_td *) p_periph_interface)->params.p_interface_handle;
 	interface_events_td *p_interface_events_handle = &((periph_interface_td *) p_periph_interface)->interface_events_handle;
 	periph_io_status_td periph_io_status = IO_OK;
 	user_hw_abstr_status_td user_status = USER_OK;
 
-	user_uart_tx_dma(p_interface_handle, p_interface_data_info->p_data, p_interface_data_info->data_size, TIMEOUT_NONE);
+	user_uart_tx_it(p_interface_handle, p_interface_data_info->p_data, p_interface_data_info->data_size, TIMEOUT_NONE);
 
 	/// if we have an event for this interface
-	if(p_interface_events_handle != NULL)
+	if((p_interface_events_handle != NULL) && (p_interface_events_handle->tx_done_events_flags != 0))
 	{
 		user_status = user_wait_event_flags(p_interface_events_handle->p_interface_events_handle, p_interface_events_handle->tx_done_events_flags);
 
@@ -410,14 +410,14 @@ periph_io_status_td uart_write_dma(void *p_periph_interface, interface_data_info
 /**
  * \brief UART write function
  */
-periph_io_status_td uart_read_dma(void *p_periph_interface, interface_data_info_td *p_interface_data_info)
+periph_io_status_td uart_read_it(void *p_periph_interface, interface_data_info_td *p_interface_data_info)
 {
 	void *p_interface_handle = ((periph_interface_td *) p_periph_interface)->params.p_interface_handle;
 	interface_events_td *p_interface_events_handle = &((periph_interface_td *) p_periph_interface)->interface_events_handle;
 	periph_io_status_td periph_io_status = IO_OK;
 	user_hw_abstr_status_td user_status = USER_OK;
 
-	user_uart_rx_dma(p_interface_handle, p_interface_data_info->p_data, p_interface_data_info->data_size, TIMEOUT_NONE);
+	user_uart_rx_it(p_interface_handle, p_interface_data_info->p_data, p_interface_data_info->data_size, TIMEOUT_NONE);
 
 	/// if we have an event for this interface
 	if(p_interface_events_handle != NULL)

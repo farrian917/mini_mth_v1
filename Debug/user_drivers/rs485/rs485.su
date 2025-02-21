@@ -1,0 +1,4 @@
+../user_drivers/rs485/rs485.c:10:13:_rs_485_dir_set	24	static
+../user_drivers/rs485/rs485.c:31:10:rs485_read	32	static
+../user_drivers/rs485/rs485.c:55:17:rs485_write_str	160	static
+../user_drivers/rs485/rs485.c:78:17:rs485_init	32	static

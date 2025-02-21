@@ -28,7 +28,7 @@ typedef enum
 typedef struct
 {
 	gpio_interface_td *interface;
-	uint32_t GPIO_LED_ORANGE;
+	uint32_t pin;
 } simple_led_params_td;
 
 uint16_t simple_led_set (simple_led_params_td *p_params, simple_led_states_td led_state);

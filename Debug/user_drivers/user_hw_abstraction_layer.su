@@ -1,3 +1,3 @@
-../user_drivers/user_hw_abstraction_layer.c:52:25:user_uart_tx_dma	32	static
-../user_drivers/user_hw_abstraction_layer.c:61:25:user_uart_rx_dma	32	static
+../user_drivers/user_hw_abstraction_layer.c:52:25:user_uart_tx_it	32	static
+../user_drivers/user_hw_abstraction_layer.c:61:25:user_uart_rx_it	32	static
 ../user_drivers/user_hw_abstraction_layer.c:72:25:user_wait_event_flags	32	static

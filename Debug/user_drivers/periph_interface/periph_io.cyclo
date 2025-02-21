@@ -12,5 +12,5 @@
 ../user_drivers/periph_interface/periph_io.c:321:21:i2c_soft_read	1
 ../user_drivers/periph_interface/periph_io.c:335:21:spi_write_dma	3
 ../user_drivers/periph_interface/periph_io.c:361:21:spi_read_dma	3
-../user_drivers/periph_interface/periph_io.c:387:21:uart_write_dma	3
-../user_drivers/periph_interface/periph_io.c:413:21:uart_read_dma	3
+../user_drivers/periph_interface/periph_io.c:387:21:uart_write_it	4
+../user_drivers/periph_interface/periph_io.c:413:21:uart_read_it	3

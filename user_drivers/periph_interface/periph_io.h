@@ -19,8 +19,8 @@ periph_io_status_td spi_read_polling(void *p_periph_interface, interface_data_in
 periph_io_status_td spi_write_dma(void *p_periph_interface, interface_data_info_td *p_interface_data_info);
 periph_io_status_td spi_read_dma(void *p_periph_interface, interface_data_info_td *p_interface_data_info);
 
-periph_io_status_td uart_write_dma(void *p_periph_interface, interface_data_info_td *p_interface_data_info);
-periph_io_status_td uart_read_dma(void *p_periph_interface, interface_data_info_td *p_interface_data_info);
+periph_io_status_td uart_write_it(void *p_periph_interface, interface_data_info_td *p_interface_data_info);
+periph_io_status_td uart_read_it(void *p_periph_interface, interface_data_info_td *p_interface_data_info);
 
 // periph_io_status_td ad9826_soft_spi_write(void *p_periph_interface, interface_data_info_td *p_interface_data_info);
 // periph_io_status_td ad9826_soft_spi_read(void *p_periph_interface, interface_data_info_td *p_interface_data_info);

@@ -91,8 +91,8 @@ user_hw_abstr_status_td user_spi_rx_polling(void *const p_interface_handle, cons
 #endif
 
 #ifdef HAL_UART_MODULE_ENABLED
-user_hw_abstr_status_td user_uart_tx_dma(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout);
-user_hw_abstr_status_td user_uart_rx_dma(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout);
+user_hw_abstr_status_td user_uart_tx_it(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout);
+user_hw_abstr_status_td user_uart_rx_it(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout);
 #endif
 
 #ifdef HAL_I2C_MODULE_ENABLED

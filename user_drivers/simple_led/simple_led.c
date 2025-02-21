@@ -11,7 +11,7 @@ uint16_t simple_led_set (simple_led_params_td *p_params, simple_led_states_td le
 {
 	simple_led_status_td status = SIMPLE_LED_OK;
 
-	p_params->interface->gpio_set(p_params->GPIO_LED_ORANGE, led_state);
+	p_params->interface->gpio_set(p_params->pin, led_state);
 
 	return status;
 }
@@ -26,7 +26,7 @@ simple_led_status_td simple_led_init(simple_led_params_td *p_params, gpio_interf
 	simple_led_status_td status = SIMPLE_LED_OK;
 	
 	p_params->interface = hgpio;
-	p_params->GPIO_LED_ORANGE = led_pin_number;
+	p_params->pin = led_pin_number;
 
 	return status;
 }

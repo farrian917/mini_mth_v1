@@ -49,20 +49,20 @@ user_hw_abstr_status_td user_spi_rx_polling(void *const p_interface_handle, cons
 
 #ifdef HAL_UART_MODULE_ENABLED
 
-user_hw_abstr_status_td user_uart_tx_dma(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout)
+user_hw_abstr_status_td user_uart_tx_it(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout)
 {
 	user_hw_abstr_status_td user_status = USER_OK;
 
-	HAL_UART_Transmit_DMA((UART_HandleTypeDef *)p_interface_handle, p_data, data_size);
+	HAL_UART_Transmit_IT((UART_HandleTypeDef *)p_interface_handle, p_data, data_size/*, timeout*/);
 
 	return user_status;
 }
 
-user_hw_abstr_status_td user_uart_rx_dma(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout)
+user_hw_abstr_status_td user_uart_rx_it(void *const p_interface_handle, const uint8_t *const p_data, const uint16_t data_size, uint32_t timeout)
 {
 	user_hw_abstr_status_td user_status = USER_OK;
 
-	HAL_UART_Receive_DMA((UART_HandleTypeDef *)p_interface_handle, p_data, data_size);
+	HAL_UART_Receive_IT((UART_HandleTypeDef *)p_interface_handle, p_data, data_size/*, timeout*/);
 
 	return user_status;
 }

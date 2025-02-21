@@ -30,7 +30,7 @@ void init_periph_events(void)
  * \brief
  *
  */
-osEventFlagsId_t * get_periph_event_id(void)
+osEventFlagsId_t  get_periph_event_id(void)
 {
 	return _periph_event_id;
 }

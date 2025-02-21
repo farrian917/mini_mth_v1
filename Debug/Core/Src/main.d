@@ -40,9 +40,6 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h \
- ../USB_DEVICE/App/usb_device.h \
- C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
- ../USB_DEVICE/Target/usbd_conf.h \
  ../user_drivers/link_interface/link_interface.h \
  ../user_drivers/periph_interface/periph_interface.h \
  ../user_drivers/gpio_interface/gpio_interface.h \
@@ -52,7 +49,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../user_drivers/gpio_interface/gpio_interface.h \
  ../user_messages/messages.h ../user_events/events.h ../user_api/api.h \
  ../user_drivers/simple_led/simple_led.h \
- ../user_drivers/user_hw_abstraction_layer.h
+ ../user_drivers/user_hw_abstraction_layer.h \
+ ../user_threads/button_thread.h ../user_threads/print_msg_thread.h \
+ ../user_threads/rs485_thread.h
 ../Core/Inc/main.h:
 C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:
 ../Core/Inc/stm32f1xx_hal_conf.h:
@@ -95,9 +94,6 @@ C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/Third_Part
 C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2/cmsis_os2.h:
-../USB_DEVICE/App/usb_device.h:
-C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
-../USB_DEVICE/Target/usbd_conf.h:
 ../user_drivers/link_interface/link_interface.h:
 ../user_drivers/periph_interface/periph_interface.h:
 ../user_drivers/gpio_interface/gpio_interface.h:
@@ -110,3 +106,6 @@ C:/Users/User/STM32Cube/Repository/STM32Cube_FW_F1_V1.8.6/Middlewares/ST/STM32_U
 ../user_api/api.h:
 ../user_drivers/simple_led/simple_led.h:
 ../user_drivers/user_hw_abstraction_layer.h:
+../user_threads/button_thread.h:
+../user_threads/print_msg_thread.h:
+../user_threads/rs485_thread.h:

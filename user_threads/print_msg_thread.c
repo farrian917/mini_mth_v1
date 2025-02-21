@@ -20,7 +20,7 @@ static osThreadId_t _print_msg_thread_id;
 static const osThreadAttr_t _print_msg_thread_attributes = {
   .name = "print_msg_thread",
   .priority = (osPriority_t) osPriorityLow,
-  .stack_size = 256 * 4
+  .stack_size = 256 * 8
 };
 
 /**

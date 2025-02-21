@@ -16,7 +16,7 @@ static osMessageQueueId_t _gpio_out_msg_queue_id = 0;
 #define GPIO_OUT_MSGQUEUE_OBJECT_SIZE			sizeof(out_msg_td)//sizeof(uint8_t)
 
 static osMessageQueueId_t _print_msg_queue_id = 0;
-#define PRINT_MSGQUEUE_OBJECTS					(uint8_t)(16)
+#define PRINT_MSGQUEUE_OBJECTS					(uint8_t)(8)
 #define PRINT_MSGQUEUE_OBJECT_SIZE 					128
 
 /**

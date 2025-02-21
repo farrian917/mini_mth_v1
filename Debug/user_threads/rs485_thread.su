@@ -1,0 +1,3 @@
+../user_threads/rs485_thread.c:41:6:rs485_thread_init	8	static
+../user_threads/rs485_thread.c:55:6:rs485_thread	64	static
+../user_threads/rs485_thread.c:100:14:get_rs485_thread_id	4	static

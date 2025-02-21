@@ -19,7 +19,6 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
-#include "usb_device.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -32,6 +31,9 @@
 #include "api.h"
 #include "simple_led.h"
 #include "user_hw_abstraction_layer.h"
+#include "button_thread.h"
+#include "print_msg_thread.h"
+#include "rs485_thread.h"
 
 /* USER CODE END Includes */
 
@@ -58,6 +60,8 @@ I2C_HandleTypeDef hi2c2;
 UART_HandleTypeDef huart1;
 UART_HandleTypeDef huart2;
 
+PCD_HandleTypeDef hpcd_USB_FS;
+
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
 const osThreadAttr_t defaultTask_attributes = {
@@ -67,7 +71,7 @@ const osThreadAttr_t defaultTask_attributes = {
 };
 /* USER CODE BEGIN PV */
 
-gpio_interface_td hgpio;
+//gpio_interface_td hgpio;
 
 /* USER CODE END PV */
 
@@ -78,6 +82,7 @@ static void MX_I2C2_Init(void);
 static void MX_CAN_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_USART1_UART_Init(void);
+static void MX_USB_PCD_Init(void);
 void StartDefaultTask(void *argument);
 
 /* USER CODE BEGIN PFP */
@@ -121,21 +126,10 @@ int main(void)
   MX_CAN_Init();
   MX_USART2_UART_Init();
   MX_USART1_UART_Init();
+  MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
 
-  link_gpio_interface(&hgpio, gpio_set, gpio_get);
-
-  link_periph_interface(
-		  get_hard_uart_interface_handle(0),
-		  get_periph_event_id(),
-		  0,
-		  0,
-		  UART,
-		  HARDWARE_ADDR,
-		  &huart1,
-		  uart_write_dma,
-		  uart_read_dma,
-		  delay_us);
+  link_gpio_interface(get_gpio_interface_handle(0), gpio_set, gpio_get);
 
   /* USER CODE END 2 */
 
@@ -165,13 +159,41 @@ int main(void)
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
-  print_msg_thread_init();
-  button_thread_init();
   /* USER CODE END RTOS_THREADS */
 
   /* USER CODE BEGIN RTOS_EVENTS */
   /* add events, ... */
   init_periph_events();
+
+//  link_periph_interface(
+//		  get_hard_uart_interface_handle(0),
+//		  get_periph_event_id(),
+//		  0,
+//		  0,
+//		  UART,
+//		  HARDWARE_ADDR,
+//		  &huart1,
+//		  uart_write_it,
+//		  uart_read_it,
+//		  delay_us);
+
+  link_periph_interface(
+		  get_hard_uart_interface_handle(1),
+		  get_periph_event_id(),
+		  0,
+		  UART2_RS485_RX_DONE,
+		  UART,
+		  HARDWARE_ADDR,
+		  &huart2,
+		  uart_write_it,
+		  uart_read_it,
+		  delay_us);
+
+  print_msg_thread_init();
+  button_thread_init();
+  rs485_thread_init();
+
+
   /* USER CODE END RTOS_EVENTS */
 
   /* Start scheduler */
@@ -375,6 +397,37 @@ static void MX_USART2_UART_Init(void)
 }
 
 /**
+  * @brief USB Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USB_PCD_Init(void)
+{
+
+  /* USER CODE BEGIN USB_Init 0 */
+
+  /* USER CODE END USB_Init 0 */
+
+  /* USER CODE BEGIN USB_Init 1 */
+
+  /* USER CODE END USB_Init 1 */
+  hpcd_USB_FS.Instance = USB;
+  hpcd_USB_FS.Init.dev_endpoints = 8;
+  hpcd_USB_FS.Init.speed = PCD_SPEED_FULL;
+  hpcd_USB_FS.Init.low_power_enable = DISABLE;
+  hpcd_USB_FS.Init.lpm_enable = DISABLE;
+  hpcd_USB_FS.Init.battery_charging_enable = DISABLE;
+  if (HAL_PCD_Init(&hpcd_USB_FS) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USB_Init 2 */
+
+  /* USER CODE END USB_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -472,21 +525,19 @@ static void MX_GPIO_Init(void)
 /* USER CODE END Header_StartDefaultTask */
 void StartDefaultTask(void *argument)
 {
-	simple_led_params_td hled;
-
-	simple_led_init(&hled, &hgpio, GPIO_LED_ORANGE);
-
-  /* init code for USB_DEVICE */
-  MX_USB_DEVICE_Init();
   /* USER CODE BEGIN 5 */
+
+	simple_led_params_td ledh;
+	simple_led_init(&ledh, get_gpio_interface_handle(0), GPIO_LED_ORANGE);
+
   /* Infinite loop */
   for(;;)
   {
-	  simple_led_set(&hled, LED_ON);
+	  simple_led_set(&ledh, LED_ON);
 	//gpio_set(0, GPIO_TRUE);
 	osDelay(100);
 	//gpio_set(0, GPIO_FALSE);
-	simple_led_set(&hled, LED_OFF);
+	simple_led_set(&ledh, LED_OFF);
     osDelay(100);
 
     print_to_console("Default task says Hello!");

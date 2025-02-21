@@ -12,12 +12,9 @@
 #include "main.h"
 #include "gpio_interface.h"
 #include "events.h"
-//#include "periph_events.h"
 
-
+static osThreadId_t _rs485_thread_id;
 static osEventFlagsId_t _periph_event_id;
-static osThreadId_t _mcu_io_thread_id;
-
 
 #ifdef HAL_SPI_MODULE_ENABLED
 /**
@@ -60,12 +57,13 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
 	UART_HandleTypeDef *p_hal_uart_handle = NULL;
+	periph_interface_td *p_user_interface_h = get_hard_uart_interface_handle(1);
 
-	p_hal_uart_handle = (UART_HandleTypeDef *)get_hard_uart_interface_handle(1);
+	p_hal_uart_handle = (UART_HandleTypeDef *)p_user_interface_h->params.p_interface_handle;
 
 	if(huart == p_hal_uart_handle)
 	{
-		osEventFlagsSet(_periph_event_id, UART2_MCU_IO_RX_DONE);
+		osEventFlagsSet(_periph_event_id, UART2_RS485_RX_DONE);
 	}
 	else
 	{
@@ -79,12 +77,13 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
 	UART_HandleTypeDef *p_hal_uart_handle = NULL;
+	periph_interface_td *p_user_interface_h = get_hard_uart_interface_handle(1);
 
-	p_hal_uart_handle = (UART_HandleTypeDef *)get_hard_uart_interface_handle(1);
+	p_hal_uart_handle = (UART_HandleTypeDef *)p_user_interface_h->params.p_interface_handle;
 
 	if(huart == p_hal_uart_handle)
 	{
-		osEventFlagsSet(_periph_event_id, UART2_MCU_IO_TX_DONE);
+		osEventFlagsSet(_periph_event_id, UART2_RS485_TX_DONE);
 	}
 	else
 	{
@@ -93,13 +92,13 @@ void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 }
 #endif
 
-///**
-// *
-// */
-//void set_cb_button_thread_id(osThreadId_t thread_id)
-//{
-//	_button_thread_id = thread_id;
-//}
+/**
+ *
+ */
+void set_cb_sr485_thread_id(osThreadId_t thread_id)
+{
+	_rs485_thread_id = thread_id;
+}
 
 /**
  *

@@ -28,14 +28,12 @@ Core/Src \
 Core/Startup \
 Drivers/STM32F1xx_HAL_Driver \
 Middlewares/FreeRTOS \
-Middlewares/USB_Device_Library \
-USB_DEVICE/App \
-USB_DEVICE/Target \
 user_api \
 user_callbacks \
 user_drivers/gpio_interface \
 user_drivers/link_interface \
 user_drivers/periph_interface \
+user_drivers/rs485 \
 user_drivers/simple_led \
 user_drivers \
 user_events \
