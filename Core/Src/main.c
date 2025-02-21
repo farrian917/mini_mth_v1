@@ -165,18 +165,6 @@ int main(void)
   /* add events, ... */
   init_periph_events();
 
-//  link_periph_interface(
-//		  get_hard_uart_interface_handle(0),
-//		  get_periph_event_id(),
-//		  0,
-//		  0,
-//		  UART,
-//		  HARDWARE_ADDR,
-//		  &huart1,
-//		  uart_write_it,
-//		  uart_read_it,
-//		  delay_us);
-
   link_periph_interface(
 		  get_hard_uart_interface_handle(1),
 		  get_periph_event_id(),
@@ -192,7 +180,6 @@ int main(void)
   print_msg_thread_init();
   button_thread_init();
   rs485_thread_init();
-
 
   /* USER CODE END RTOS_EVENTS */
 
